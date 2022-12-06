@@ -1,6 +1,8 @@
 from functools import lru_cache
 from typing import List, Dict
 
+# initial commit
+
 
 @lru_cache
 def read(path: str) -> List[Dict]:
