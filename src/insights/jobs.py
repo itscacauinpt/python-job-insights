@@ -21,9 +21,7 @@ def read(path: str) -> List[Dict]:
     try:
         with open(path, encoding="utf-8") as file:
             jobs_file = csv.DictReader(file, delimiter=",")
-            jobs_archive = []
-            for job in jobs_file:
-                jobs_archive.append(job)
+            jobs_archive = [job for job in jobs_file]
 
     except not path.endswith(('.csv')):
         raise Exception('Must be a csv file')
@@ -53,8 +51,7 @@ def get_unique_job_types(path: str) -> List[str]:
     try:
         jobs_file = read(path)
         unique_jobs_archive = set()
-        for job_type in jobs_file:
-            unique_jobs_archive.add(job_type['job_type'])
+        unique_jobs_archive = {job['job_type'] for job in jobs_file}
 
     except AttributeError:
         raise Exception('Could not attribute references or assignments')
@@ -78,4 +75,12 @@ def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
     list
         List of jobs with provided job_type
     """
-    raise NotImplementedError
+    # raise NotImplementedError
+    try:
+        filtered_type = [job for job in jobs if job['job_type'] == job_type]
+
+    except KeyError:
+        raise Exception('Key error')
+
+    else:
+        return filtered_type
