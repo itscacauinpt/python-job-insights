@@ -50,7 +50,17 @@ def get_unique_job_types(path: str) -> List[str]:
     list
         List of unique job types
     """
-    raise NotImplementedError
+    try:
+        jobs_file = read(path)
+        unique_jobs_archive = set()
+        for job_type in jobs_file:
+            unique_jobs_archive.add(job_type['job_type'])
+
+    except AttributeError:
+        raise Exception('Could not attribute references or assignments')
+
+    else:
+        return unique_jobs_archive
 
 
 def filter_by_job_type(jobs: List[Dict], job_type: str) -> List[Dict]:
