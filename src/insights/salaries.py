@@ -130,4 +130,17 @@ def filter_by_salary_range(
     list
         Jobs whose salary range contains `salary`
     """
-    raise NotImplementedError
+    jobs_list = list()
+    for job in jobs:
+        if matches_salary_range(job, salary):
+            jobs_list.append(job)
+
+    return jobs_list
+
+    # try:
+    #     jobs_list = list()
+    #     for job in jobs:
+    #         if matches_salary_range(job, salary):
+    #             jobs_list.append(job)
+    #
+    # exception Assertion?
