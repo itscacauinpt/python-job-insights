@@ -81,7 +81,7 @@ def list_jobs():
 
 
 @bp.route("/job/<index>")
-def a_job(index):
+def job(index):
     list_jobs = read(path="data/jobs.csv")
     job = get_job(list_jobs, index)
 
