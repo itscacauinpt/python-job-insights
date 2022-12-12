@@ -17,6 +17,7 @@ from src.insights.salaries import (
 )
 
 from src.flask_app.more_insights import (
+    get_job,
     slice_jobs,
     get_int_from_args,
     build_jobs_urls,
@@ -77,6 +78,14 @@ def list_jobs():
     }
 
     return render_template("list_jobs.jinja2", ctx=ctx)
+
+
+@bp.route("/jobs<index>")
+def a_job(index):
+    list_jobs = read(path="data/jobs.csv")
+    job = get_job(list_jobs, index)
+
+    return render_template(job)
 
 
 def init_app(app: Flask):
