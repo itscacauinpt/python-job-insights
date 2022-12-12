@@ -85,7 +85,7 @@ def job(index):
     list_jobs = read(path="data/jobs.csv")
     job = get_job(list_jobs, index)
 
-    return render_template("index.jinja2", job=job)
+    return render_template("job.jinja2", job=job)
 
 
 def init_app(app: Flask):
