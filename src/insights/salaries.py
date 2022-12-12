@@ -67,6 +67,27 @@ def get_min_salary(path: str) -> int:
         return min_salary
 
 
+def returnError(job, salary):
+    if (
+        'min_salary' not in job
+        or 'max_salary' not in job
+    ):
+        return False
+
+    elif (
+        not str(job['min_salary']).isdigit()
+        or not str(job['max_salary']).isdigit()
+    ):
+        return False
+
+    elif (
+        int(job['min_salary']) > int(job['max_salary'])
+        or not str(salary).lstrip('-.').isdigit()
+    ):
+        return False
+    return True
+
+
 def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
     """Checks if a given salary is in the salary range of a given job
 
@@ -90,26 +111,11 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
         If `job["min_salary"]` is greather than `job["max_salary"]`
         If `salary` isn't a valid integer
     """
-    if (
-        'max_salary' not in job
-        or 'min_salary' not in job
-    ):
-        raise ValueError
 
-    elif (
-        type(job['max_salary']) != int
-        or type(job['min_salary']) != int
-    ):
-        raise ValueError
-
-    elif (
-        int(job['min_salary']) > int(job['max_salary'])
-        or not str(salary).lstrip('-.')
-    ):
-        raise ValueError
-
-    else:
+    if returnError(job, salary):
         return int(job['min_salary']) <= int(salary) <= int(job['max_salary'])
+    else:
+        raise ValueError
 
 
 def filter_by_salary_range(
@@ -132,15 +138,11 @@ def filter_by_salary_range(
     """
     jobs_list = list()
     for job in jobs:
-        if matches_salary_range(job, salary):
-            jobs_list.append(job)
+        try:
+            if matches_salary_range(job, salary):
+                jobs_list.append(job)
+
+        except ValueError:
+            print('Value error...')
 
     return jobs_list
-
-    # try:
-    #     jobs_list = list()
-    #     for job in jobs:
-    #         if matches_salary_range(job, salary):
-    #             jobs_list.append(job)
-    #
-    # exception Assertion?
