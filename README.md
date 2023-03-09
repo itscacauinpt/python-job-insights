@@ -3,7 +3,9 @@
 # :computer: Project Job Insights
 > Status: Finished - Dec/2022 :heavy_check_mark: :warning:
 >
-> Last Updated: Fixing Flask App Issues - March/2023 :warning:
+> Last Updated: Fixing Flask App Issues - March/2023 :check_mark:
+
+##### _implementing and testing a pyhton web app | app developed by Trybe :warning:_
 
 Project done individually during the course of [Trybe](https://www.betrybe.com/).
 Project aiming to implement analytics from a dataset on jobs.
