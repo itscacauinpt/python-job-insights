@@ -5,11 +5,9 @@
 >
 > Last Updated: Fixing Flask App Issues - March/2023 :check_mark:
 
-##### _implementing and testing a pyhton web app | app developed by Trybe :warning:_
+##### _implementing and testing a pyhton web app | app developed by Trybe:grey_exclamation:_
 
-Project done individually during the course of [Trybe](https://www.betrybe.com/).
-Project aiming to implement analytics from a dataset on jobs.
-Implementations built into Flask + Testing for implementing a data analysis.
+This project was developed independently as part of my coursework at [Trybe](https://www.betrybe.com/). Its goal was to develop an implementation for data analytics using a job dataset, utilizing [Flask](https://flask.palletsprojects.com/en/2.2.x/) and testing methodologies with [Pytest](https://docs.pytest.org/en/7.2.x/). The final implementation includes comprehensive data analysis capabilities.
 
 #### :computer: Habilities
 
