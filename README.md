@@ -3,7 +3,7 @@
 # :computer: Project Job Insights
 > Status: Finished - Dec/2022 :heavy_check_mark: :warning:
 >
-> Last Updated: Fixing Flask App Issues - March/2023 :check_mark:
+> Last Updated: Fixing Flask App Issues - March/2023 :white_check_mark:
 
 ##### _implementing and testing a pyhton web app | app developed by Trybe:grey_exclamation:_
 
